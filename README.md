@@ -30,9 +30,3 @@ how we implemented our idea
 
 - ~~Ask for McHacks shirt~~ (GOT IT) and make a harness!!!!
     - This is gonna take a lot of crazy arts and crafts skills
-
-### WHENEVER:
-
-- Build pitch (draft under purpose)
-
-- ~~if we have time we can register a domain and make a site with HTML and CSS but only if we have extra time (also note that registering a domain takes hours)~~

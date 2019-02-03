@@ -1,18 +1,18 @@
 #include "header.h"
 
-// Sends pings to 3 sensors, updates float array of distances in cm
+// ends pings to 3 sensors, updates float array of distances in cm
 void get_Distance(float dist[]) {
     //LEFT SENSOR
-    digitalWrite(trig_L, LOW);      // Trig is the output trigger pin for ultrasound (sends sound when HIGH)
-    delayMicroseconds(1);           // Delays are for pauses when the robot "listens" for echo
+    digitalWrite(trig_L, LOW);      //Trig is the output trigger pin for ultrasound (sends sound when HIGH)
+    delayMicroseconds(1);           //Delays are for pauses when the robot "listens" for echo
     digitalWrite(trig_L, HIGH);
     delayMicroseconds(10);
     digitalWrite(trig_L, LOW);
     dist[left] = pulseIn(echo_L, HIGH);
 
     //CENTRE SENSOR
-    digitalWrite(trig_C, LOW);
-    delayMicroseconds(2);
+    //digitalWrite(trig_C, LOW);
+    //delayMicroseconds(2);
     digitalWrite(trig_C, HIGH);
     delayMicroseconds(10);
     digitalWrite(trig_C, LOW);
@@ -32,9 +32,12 @@ void get_Distance(float dist[]) {
     dist[right] /= 58;
 }
 
-// takes distance data, returns float array b determinining speed of pulse for individual buzzers
-// where inten[left] = L, inten[centre] = C, inten[right] = R
-void get_inten(float dist[], float inten[]) {
+//Takes distance data, updates float array inten determinining how to affect thespeed of
+//pulse for individual buzzers
+void get_Intensity(float inten[], float dist[]) {
+    //Safety for digikey sensor
+    if (dist[centre] < 1) dist[centre] = 500;
+
     if (dist[left] > MAX_DIST && dist[centre] > MAX_DIST && dist[right] > MAX_DIST) { //Nothing in reasonable range
         inten[left] = 0;
         inten[centre] = 0;
@@ -59,7 +62,7 @@ void get_inten(float dist[], float inten[]) {
 }
 
 
-// Pulses buzzez at varying frequency, dependent on nearest object distance
+//Pulses buzzez at varying frequency, dependent on nearest object distance
 void pulsate(float inten[]) {
 
     long time_start = millis();
@@ -100,7 +103,7 @@ void pulsate(float inten[]) {
     for (int i = 0; i < BUZZERS; i++) send_Buzz(i, LOW);
 }
 
-// Sets the state of a buzzer
+//Sets the state of a buzzer
 void send_Buzz(int buzzer, int state) {
     switch (buzzer) {
         case left: digitalWrite(buzzer_L, state);

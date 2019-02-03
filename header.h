@@ -8,7 +8,7 @@ void get_Distance(float dist[]);
 
 //Takes distance data, returns float array b determinining speed of pulse for individual buzzers
 //where inten[right] = LL, inten[centre] = L, inten[right] = C, inten[3] = R, inten[4] = RR
-void get_inten(float dist[], float inten[]);
+void get_Intensity(float inten[], float dist[]);
 
 //Sets state of a buzzer
 void send_Buzz(int buzzer, int state);
