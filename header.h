@@ -3,19 +3,18 @@
 
 // ========================== Function Prototypes =============================
 
-// Sends pings to 3 sensors, returns float array of distances in cm where a[0] = dist[0], a[1] = dist[1], a[2] = dist[2].
+//Sends pings to 3 sensors, updates float array of distances in cm
 void get_Distance(float dist[]);
 
-// takes distance data, returns float array b determinining speed of pulse for individual buzzers
-// where intensity[0] = LL, intensity[1] = L, intensity[2] = C, intensity[3] = R, intensity[4] = RR
-void get_Intensity(float dist[], float intensity[]);
+//Takes distance data, returns float array b determinining speed of pulse for individual buzzers
+//where inten[right] = LL, inten[centre] = L, inten[right] = C, inten[3] = R, inten[4] = RR
+void get_inten(float dist[], float inten[]);
 
-// Takes int which indicates which buzzer, and bool to turn on or off
-void send_Buzz (int buzzer, bool turn_on);
+//Sets state of a buzzer
+void send_Buzz(int buzzer, int state);
 
-// Pulses buzzes and calls send_buzz() a LOT
-// Key: intensity[0] = LL, intensity[1] = L, intensity[2] = C, intensity[3] = R, intensity[4] = RR
-void pulsate (float intensity[]);
+//Pulses buzzes and calls send_buzz() a LOT
+void pulsate(float inten[]);
 
 // =============================== Pins =======================================
 
@@ -29,13 +28,22 @@ void pulsate (float intensity[]);
 
 
 //Buzzers TEMP VALS
-#define buzzer_C 0
-#define buzzer_L1 1
-#define buzzer_L2 4
-#define buzzer_R1 5
-#define buzzer_R2 6
+#define BUZZERS 3
+#define buzzer_L 2
+#define buzzer_C 3
+#define buzzer_R 4
 
-int default_delay = 100; // pulse 200 ms, delay 200 ms
-int quick_delay = 10;
+// =============================== ETC =======================================
+
+//For reasability
+enum Buzzer {
+    left,
+    centre,
+    right
+};
+
+const short MAX_DIST = 350;
+const int default_delay = 200; // pulse 200 ms, delay 200 ms
+const int quick_delay = 10;
 
 #endif

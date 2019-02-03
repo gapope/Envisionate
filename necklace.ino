@@ -1,10 +1,10 @@
 #include "header.h"
 
-//declaring arrays
-float intensity[5];
+//Declaring arrays
 float dist[3];
+float inten[BUZZERS];
 
-//Debug prep
+//Pin prep
 void setup() {
   pinMode(trig_L, OUTPUT);
   pinMode(echo_L, INPUT);
@@ -12,23 +12,15 @@ void setup() {
   pinMode(echo_C, INPUT);
   pinMode(trig_R, OUTPUT);
   pinMode(echo_R, INPUT);
-  
-  //Serial connection for testing, BAUD 9600
-  Serial.begin(9600);
-  //Serial.print("WOOT LETS DO THIS BITCHHH");
 
-  while(!Serial);
-  //pinMode()
+  pinMode(buzzer_L, OUTPUT);
+  pinMode(buzzer_C, OUTPUT);
+  pinMode(buzzer_R, OUTPUT);
 }
 
-//Main functions
+//Main function calls
 void loop() {
-  Serial.println("Calling pulses");
   get_Distance(dist);
-  //delay(3000);
-  get_Intensity(dist, intensity);
-  //delay(3000);
-  pulsate(intensity);
-  //delay(5000);
-
+  get_inten(dist, inten);
+  pulsate(inten);
 }
