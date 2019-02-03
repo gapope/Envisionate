@@ -1,4 +1,4 @@
-# ENVISIONATE: HEAR right SEE
+# ENVISIONATE: HEAR 2 SEE
 
 Believe it or not fellow Hackers, people go outside! And when they go outside, they can get hurt - especially if they have a visual impairment.
 
