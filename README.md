@@ -22,11 +22,4 @@ definitions for visual impairment:
 
 how we implemented our idea
 - used ultrasonic sensors to capture distance data and relay it to the corresponding buzzer
-- proof of concept: wanted DC motors to induce vibrations
-
-## TO DO
-
-### ASAP:
-
-- ~~Ask for McHacks shirt~~ (GOT IT) and make a harness!!!!
-    - This is gonna take a lot of crazy arts and crafts skills
+- proof of concept: wanted DC motors to induce vibration
