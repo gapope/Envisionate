@@ -3,29 +3,30 @@
 
 // ========================== Function Prototypes =============================
 
-//  main_algorithm
-int locate();             // Sends trig, waits for echo, and outputs which buzzer
+// Sends pings to 3 sensors, returns float array of distances in cm where a[0] = dist_L, a[1] = dist_C, a[2] = dist_R.
+float[] get_Distance ();
 
-// sensors
-float distance_test();               // test the front distance to objects
-
+// takes distance data, returns float array b determinining speed of pulse for individual buzzers
+// where b[0] = LL, b[1] = L, b[2] = C, b[3] = R, b[4] = RR
+float[] get_Intensity(float d[]);
+void pulsate (float f[]);
+void send_buzz (int buzzer, bool turn_on);
 
 // =============================== Pins =======================================
 
-extern const short Trig; // output trigger pin for ultrasound (sends sound)
-extern const short Echo; // input echo pin for ultrasound(echo from sound sent)
+//Ultrasonics TEMP VALS
+#define trig_C 8
+#define echo_C 9
+#define trig_L 10
+#define echo_L 11
+#define trig_R 12
+#define echo_R 13
 
-extern const short trig_C = ;//
-extern const short echo_C = ;//
-extern const short trig_L = ;//
-extern const short echo_L = ;//
-extern const short trig_R = ;//
-extern const short echo_R = ;//
-
-extern const short buzzer_C = A2;
-extern const short buzzer_L1 = A3;
-extern const short buzzer_L2 = A4;
-extern const short buzzer_R1 = A5;
-extern const short buzzer_R2= A6;
+//Buzzers TEMP VALS
+#define buzzer_C 2
+#define buzzer_L1 3
+#define buzzer_L2 4
+#define buzzer_R1 5
+#define buzzer_R2 6
 
 #endif
