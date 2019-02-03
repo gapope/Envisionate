@@ -12,7 +12,7 @@ void get_Distance(float dist[]) {
 
     //CENTRE SENSOR
     //digitalWrite(trig_C, LOW);
-    //delayMicroseconds(2);
+    delayMicroseconds(2);
     digitalWrite(trig_C, HIGH);
     delayMicroseconds(10);
     digitalWrite(trig_C, LOW);
@@ -50,7 +50,7 @@ void get_Intensity(float inten[], float dist[]) {
         inten[left] = 0;
         inten[centre] = dist[centre] / 175;
         inten[right] = 0;
-    } else if (dist[right] < dist[left] && dist[right] < dist[centre] ) { //Right side
+    } else if (dist[right] < dist[left] && dist[right] < dist[centre]) { //Right side
         inten[left] = 0;
         inten[centre] = 0;
         inten[right] = dist[right] / 175;
@@ -62,7 +62,7 @@ void get_Intensity(float inten[], float dist[]) {
 }
 
 
-//Pulses buzzez at varying frequency, dependent on nearest object distance
+//Pulses buzzes at varying frequency, dependent on nearest object distance
 void pulsate(float inten[]) {
 
     long time_start = millis();
@@ -94,7 +94,7 @@ void pulsate(float inten[]) {
                  *  that means it has been on for the time interval required so let's turn it off (!centre is false)
                  *  After the next interval of time has passed, turn on... repeat :) */
 
-                send_Buzz(i, (bool(((time_since/buzzer_interval[i])%right)) ? LOW : HIGH));
+                send_Buzz(i, (bool(((time_since/buzzer_interval[i])%2)) ? LOW : HIGH));
             }
         }
     }
