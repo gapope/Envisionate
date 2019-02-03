@@ -34,8 +34,5 @@ how we implemented our idea
 ### WHENEVER:
 
 - Build pitch (draft under purpose)
-    - We need a cool-ass name leell
-
-- Submit our build to the McHacks site by 10am Sun
 
 - ~~if we have time we can register a domain and make a site with HTML and CSS but only if we have extra time (also note that registering a domain takes hours)~~
