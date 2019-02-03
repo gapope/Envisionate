@@ -1,26 +1,34 @@
 #include "header.h"
 
+//declaring arrays
+float intensity[5];
+float dist[3];
+
+//Debug prep
 void setup() {
-  // put your setup code here, to run once:
+  pinMode(trig_L, OUTPUT);
+  pinMode(echo_L, INPUT);
+  pinMode(trig_C, OUTPUT);
+  pinMode(echo_C, INPUT);
+  pinMode(trig_R, OUTPUT);
+  pinMode(echo_R, INPUT);
+  
+  //Serial connection for testing, BAUD 9600
+  Serial.begin(9600);
+  //Serial.print("WOOT LETS DO THIS BITCHHH");
 
-  pinMode(buzzer_1, OUTPUT);
-
-  // Initialize pins here later 
+  while(!Serial);
+  //pinMode()
 }
 
-
-
+//Main functions
 void loop() {
-  // put your main code here, to run repeatedly:
-
-  buzzer_1 = HIGH; //?? or something like this. plz fix ittt
-  delay(200);
-  buzzer_1 = LOW;
-  delay (200);
-
-  
-  // Scan around us
-  // Take the distances and feed them to a start_buzz() function??
-
+  Serial.println("Calling pulses");
+  get_Distance(dist);
+  //delay(3000);
+  get_Intensity(dist, intensity);
+  //delay(3000);
+  pulsate(intensity);
+  //delay(5000);
 
 }
