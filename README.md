@@ -6,7 +6,6 @@ Some insight exists on the challenges that people with visual impairments face w
 
 With this product, we're bringing tech applications to the people who need it most. Easy-to-use hardware combined with our reliable object-detecting mechanism makes this a cutting-edge device for improving blind people's lives!
 
-pitch stuff:
 
 why our product matters:
 - increases independence
